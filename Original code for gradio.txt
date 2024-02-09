@@ -1,0 +1,26 @@
+Original code :
+import gradio as gr
+from PIL import Image
+
+def colorize_image(input_image):
+    # Convert Gradio Image to numpy array
+    input_np = np.array(input_image)
+
+    # Perform colorization using your model (use the colorize function)
+    colorized_img = colorize(input_np, compiled_model, output_layer)
+
+    # Convert the result back to Gradio-compatible format (PIL Image)
+    result_pil = Image.fromarray(colorized_img)
+
+    return result_pil
+
+# Create Gradio Interface
+iface = gr.Interface(
+    fn=colorize_image,
+    inputs=gr.Image(),
+    outputs=gr.Image(),
+    live=True
+)
+
+# Deploy the Gradio interface as a web app
+iface.launch(share=True)
